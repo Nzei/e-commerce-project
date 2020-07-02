@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Visualization of Items from CSV</title>
+        <script
+            type="text/javascript"
+            src="utilities/jquery-3.5.0.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="utilities/bootstrap-4.4.1-dist/js/bootstrap.min.js"
+        ></script>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="utilities/bootstrap-4.4.1-dist/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+    </head>
+    <body>
+        
+
+        <div class="top">
+            <span style="text-align: center"
+                >Top Items by Year, Month and Week</span
+            >
+            <label></label>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4" style="text-align: center;">
+                <select id="year-range-dropdown">
+                    <option value="yearSelectValue">-- Select Year --</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                </select>
+                <div id="top-5-by-year" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+
+            <div class="col-sm-4" style="text-align: center;">
+                <select id="month-range-dropdown" disabled>
+                    <option value="monthSelectValue">-- Select Month --</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <div id="top-5-by-month" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+
+            <div class="col-sm-4" style="text-align: center;">
+                <select id="week-range-dropdown" disabled>
+                    <option value="weekSelectValue">-- Select Week --</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <div id="top-5-by-week" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+        </div>
+        
+        <div style="width: 100%; height: 1px; background: purple"></div>
+        
+        
+        <div id="container">
+            <div class="top">
+                <span style="text-align: center"
+                    >Top 10 and Least 10 Items by Age group</span
+                >
+                <label></label>
+                <select id="age-range-dropdown">
+                    <option value="selectValue">-- Select --</option>
+                    <option value="16-40">16 - 40</option>
+                    <option value="41-70">41 - 70</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div id="top-10-by-age" style="height: 400px">
+                        <svg style="width: 100%; height: 100%"></svg>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div id="least-10-by-age" style="height: 400px">
+                        <svg style="width: 100%; height: 100%"></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 100%; height: 1px; background: purple"></div>
+
+        
+        
+         <div class="top">
+            <span style="text-align: center"
+                >Top 5 by Holiday</span
+            >
+            <label></label>
+            <select id="holiday-range-dropdown">
+                <option value="holidaySelectValue">-- Select --</option>
+                <option value="christmas_2019">Christmas 2019</option>
+                <option value="christmas_2018">Christmas 2018</option>
+                <option value="christmas_2017">Christmas 2017</option>
+                <option value="christmas_2016">Christmas 2016</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="top-5-by-holiday" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+        </div>
+        
+         <div style="width: 100%; height: 1px; background: purple"></div>
+
+        <div class="top">
+            <span style="text-align: center"
+                >Top 10 and Least 10 Items by Countries</span
+            >
+            <label></label>
+            <select id="location-range-dropdown">
+                <option value="stateSelectValue">-- Select State --</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="top-10-by-location" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div id="least-10-by-location" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 100%; height: 1px; background: purple"></div>
+
+        
+        
+        <div class="top">
+            <span style="text-align: center"
+                >Top 10 and Least 10 Items by Gender</span
+            >
+            <label></label>
+            <select id="gender-range-dropdown">
+                <option value="genderSelectValue">-- Select --</option>
+                <option value="male">M</option>
+                <option value="female">F</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="top-10-by-gender" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div id="least-10-by-gender" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 100%; height: 1px; background: purple"></div>
+        
+         <div class="top">
+            <p style="text-align: center">Sales per Quarter yearly</p>
+            <label></label>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="top-sales-by-year" style="height: 400px; text-align: center;">
+                    
+                    <div id="sale-by-year" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div id="top-sales-by-quarter" style="height: 400px; text-align: center;">
+                     <select id="yearly-sales-range-dropdown">
+                <option value="yearlySalesSelectValue">-- Select Year --</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+            </select>
+                    <div id="sale-by-quarter" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 100%; height: 1px; background: purple"></div>
+        
+        <div class="top">
+            <span style="text-align: center"
+                >Most popular vs Least popular item in a Category</span
+            >
+            <label></label>
+            <select id="mvl-range">
+                <option value="mvlSelectValue">-- Select --</option>
+                <option value="fashion">Fashion</option>
+                <option value="gaming">Gaming</option>
+                <option value="computing">Computing</option>
+                <option value="grocery">Grocery</option>
+                <option value="health">Health</option>
+                <option value="appliances">Appliances</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="top-vs-least-by-category" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+        </div>
+        
+        <div style="width: 100%; height: 1px; background: purple"></div>
+        
+
+       
+
+        <div class="top">
+            
+            <p class="demographic-class">Demographic Information</p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4" style="text-align: center;">
+                <p>Age Demographic description</p>
+                <div id="demographic-by-age" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+
+            <div class="col-sm-4" style="text-align: center;">
+               <p>Gender Demographic description</p>
+                <div id="demographic-by-gender" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+
+            <div class="col-sm-4" style="text-align: center;">
+                 <p>Location Demographic description</p>
+                <div id="demographic-by-location" style="height: 400px">
+                    <svg style="width: 100%; height: 100%"></svg>
+                </div>
+            </div>
+        </div>
+        
+         <div style="width: 100%; height: 1px; background: purple"></div>
+        
+       
+        
+       
+
+        <script
+            type="text/javascript"
+            src="https://d3js.org/d3.v5.min.js"
+        ></script>
+        <script type="text/javascript" src="js/frontend.js"></script>
+    </body>
+</html>
